@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Project Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Acadia
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+Acadia empowers student to transform their study habits. Track your progress, unlock focused work sessions, and watch your academic potential soar.
 
-### `npm start`
+### Problem
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Students struggle to balance coursework, distractions and maintain consistent study habits. This leads to procrastination, stress and a sense of overwhelm that negatively impacts grades and overall well being. We don't want bad grades!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Acadia provides a dedicated student workspace that combats these challenges and help students to be their best!
 
-### `npm test`
+### User Profile
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- High school to University/College students:
+  - Who wants to get better grades or academic achievement
+  - More control over their studies
+  - Looking for ways to study effectively and have more time for other activities outside of school.
 
-### `npm run build`
+### Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Core Features:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Manage tasks by using the to-do list features.
+- Write notes down for classes.
+- Pomodoro to time your studies and flow.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Implementation
 
-### `npm run eject`
+### Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React
+- Express
+- Node JS
+- React-router
+- Axios
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### APIs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Timer
+- Calendar
+- Weather
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Sitemap
 
-## Learn More
+- Home Page
+- To Do Page
+- Work Focus Page
+- Note Taking Page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Data
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- To Do lists
+- Note Pages
+- Timer/How long you studied.
 
-### Code Splitting
+## Roadmap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Create client
 
-### Analyzing the Bundle Size
+  - react project with routes and boilerplate pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Create server
 
-### Making a Progressive Web App
+  - express project with routing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- UI/UX
 
-### Advanced Configuration
+  - Get inspiration online
+  - Draw your design instead
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Implement Core Features
+  - Simple task list
+  - Note taking pages -> saving them
+  - Work focus page.
 
-### Deployment
+## Nice-to-haves
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Theme Change Feature
+- Spotify Integration for students who likes listening to music while studying
+- Customizable Homepage
+- Data Visualization
+- Widgets
