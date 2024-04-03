@@ -32,7 +32,7 @@ Core Features:
 ### Tech Stack
 
 - React
-- Express
+- Express - https://github.com/genesis-boop/acadia-server
 - Node JS
 - React-router
 - Axios
