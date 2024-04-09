@@ -7,24 +7,60 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
+import Button from "@mui/material/Button";
 
 function AddToDo() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [dueDate, setDueDate] = useState(null);
   const [priority, setPriority] = useState("");
   const [tags, setTags] = useState("");
 
-  const handleChange = (event) => {
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
+
+  const handleDueDateChange = (newValue) => {
+    setDueDate(newValue);
+  };
+
+  const handlePriorityChange = (event) => {
     setPriority(event.target.value);
+  };
+
+  const handleTagsChange = (event) => {
     setTags(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const newTask = {
+      title,
+      description,
+      dueDate,
+      priority,
+      tags,
+    };
+
+    console.log("New Task: ", newTask);
+  };
+
   return (
-    <Stack direction="row" justifyContent="center">
-      <Stack direction="column">
+    <Stack direction="row" spacing={3}>
+      <Stack direction="column" spacing={2}>
         <TextField
           id="task-title"
           label="Task Title"
           variant="outlined"
           fullWidth
+          value={title}
+          onChange={handleTitleChange}
+          required
         />
         <TextField
           id="task-description"
@@ -32,12 +68,23 @@ function AddToDo() {
           multiline
           rows={4}
           fullWidth
+          value={description}
+          onChange={handleDescriptionChange}
+          required
         />
+        <Button variant="contained" onClick={handleSubmit}>
+          Add New Task
+        </Button>
       </Stack>
       <Stack>
         <p>Due Date</p>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DateCalendar />
+          <DateCalendar
+            label="Select Due Date"
+            value={dueDate}
+            onChange={handleDueDateChange}
+            renderInput={(params) => <TextField {...params} fullWidth />}
+          />
         </LocalizationProvider>
         <Stack direction="row">
           <p>Priority</p>
@@ -46,24 +93,17 @@ function AddToDo() {
               labelId="task-priority"
               id="task-priority"
               value={priority}
-              onChange={handleChange}
+              onChange={handlePriorityChange}
               displayEmpty
             >
-              <MenuItem value={10}>Low</MenuItem>
-              <MenuItem value={20}>Medium</MenuItem>
-              <MenuItem value={30}>High</MenuItem>
+              <MenuItem value="">None</MenuItem>
+              <MenuItem value={1}>Low</MenuItem>
+              <MenuItem value={2}>Medium</MenuItem>
+              <MenuItem value={3}>High</MenuItem>
             </Select>
           </FormControl>
           <p>Tags</p>
-          <FormControl>
-            <Select
-              labelId="task-tags"
-              id="task-tags"
-              value={tags}
-              onChange={handleChange}
-              displayEmpty
-            ></Select>
-          </FormControl>
+          <FormControl></FormControl>
         </Stack>
       </Stack>
     </Stack>
