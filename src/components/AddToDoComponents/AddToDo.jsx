@@ -8,6 +8,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
 import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
+import Autocomplete from "@mui/material/Autocomplete";
 import axios from "axios";
 
 function AddToDo() {
@@ -15,7 +17,13 @@ function AddToDo() {
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState(null);
   const [priority, setPriority] = useState("");
-  const [tags, setTags] = useState("");
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [tagOptions, setTagOptions] = useState([
+    "Work",
+    "Home",
+    "School",
+    "Urgent",
+  ]);
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -33,10 +41,6 @@ function AddToDo() {
     setPriority(event.target.value);
   };
 
-  const handleTagsChange = (event) => {
-    setTags(event.target.value);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -45,7 +49,7 @@ function AddToDo() {
       description,
       dueDate,
       priority,
-      tags,
+      tags: selectedTags,
     };
 
     try {
@@ -114,7 +118,33 @@ function AddToDo() {
             </Select>
           </FormControl>
           <p>Tags</p>
-          <FormControl></FormControl>
+          <Autocomplete
+            multiple
+            id="tags-filled"
+            options={tagOptions}
+            freeSolo // Allows typing new tags
+            value={selectedTags}
+            onChange={(event, newTags) => {
+              setSelectedTags(newTags);
+            }}
+            renderTags={(value, getTagProps) =>
+              value.map((option, index) => (
+                <Chip
+                  variant="outlined"
+                  label={option}
+                  {...getTagProps({ index })}
+                />
+              ))
+            }
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                variant="outlined"
+                label="Tags"
+                placeholder="Add Tags..."
+              />
+            )}
+          />
         </Stack>
       </Stack>
     </Stack>
