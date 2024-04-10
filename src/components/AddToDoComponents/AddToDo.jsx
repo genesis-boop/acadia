@@ -8,6 +8,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
 import Button from "@mui/material/Button";
+import axios from "axios";
 
 function AddToDo() {
   const [title, setTitle] = useState("");
@@ -36,7 +37,7 @@ function AddToDo() {
     setTags(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const newTask = {
@@ -47,7 +48,17 @@ function AddToDo() {
       tags,
     };
 
-    console.log("New Task: ", newTask);
+    try {
+      const response = await axios.post("http://localhost:8080/todo", newTask);
+
+      if (response.status === 201) {
+        console.log("Task Saved Nice");
+      } else {
+        console.log("wuh woh", response.status);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
