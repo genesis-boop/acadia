@@ -1,5 +1,7 @@
+import PermanentDrawerLeft from "../../components/DrawerComponent/DrawerComponent";
+
 function HomePage() {
-  return <>This is the homepage</>;
+  return <PermanentDrawerLeft />;
 }
 
-export default HomePage
+export default HomePage;
