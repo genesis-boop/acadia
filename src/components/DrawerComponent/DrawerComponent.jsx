@@ -23,6 +23,9 @@ function PermanentDrawerLeft() {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
+            borderWidth: 0,
+            background:
+              "linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%)",
           },
         }}
         variant="permanent"
