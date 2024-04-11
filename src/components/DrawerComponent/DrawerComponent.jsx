@@ -10,6 +10,7 @@ import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
 import NotesRoundedIcon from "@mui/icons-material/NotesRounded";
 import LaptopRoundedIcon from "@mui/icons-material/LaptopRounded";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -33,22 +34,26 @@ function PermanentDrawerLeft() {
       >
         <Typography variant="h4">Acadia</Typography>
         <List>
-          <ListItem key="Dashboard" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <HomeRoundedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem key="Tasks" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <TaskAltRoundedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Tasks" />
-            </ListItemButton>
-          </ListItem>
+          <Link to="/">
+            <ListItem key="Dashboard" disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <HomeRoundedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+          <Link to="/add-todo">
+            <ListItem key="Tasks" disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <TaskAltRoundedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Tasks" />
+              </ListItemButton>
+            </ListItem>
+          </Link>
           <ListItem key="Notes" disablePadding>
             <ListItemButton>
               <ListItemIcon>
