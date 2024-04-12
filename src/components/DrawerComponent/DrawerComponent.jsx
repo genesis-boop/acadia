@@ -10,6 +10,8 @@ import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
 import NotesRoundedIcon from "@mui/icons-material/NotesRounded";
 import LaptopRoundedIcon from "@mui/icons-material/LaptopRounded";
 import Typography from "@mui/material/Typography";
+import "@fontsource/rubik/900.css";
+import "@fontsource/space-grotesk/400.css";
 import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -27,12 +29,16 @@ function PermanentDrawerLeft() {
             borderWidth: 0,
             background:
               "linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%)",
+            justifyContent: "center",
+            fontFamily: "Space Grotest, sans-serif",
           },
         }}
         variant="permanent"
         anchor="left"
       >
-        <Typography variant="h4">Acadia</Typography>
+        <Typography variant="h4" sx={{ fontFamily: "Rubik, sans-serif" }}>
+          ACADIA
+        </Typography>
         <List>
           <ListItem key="Dashboard" disablePadding component={Link} to="/">
             <ListItemButton>
