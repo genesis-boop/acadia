@@ -34,32 +34,28 @@ function PermanentDrawerLeft() {
       >
         <Typography variant="h4">Acadia</Typography>
         <List>
-          <Link to="/">
-            <ListItem key="Dashboard" disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <HomeRoundedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <Link to="/add-todo">
-            <ListItem key="Tasks" disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <TaskAltRoundedIcon />
-                </ListItemIcon>
-                <ListItemText primary="Tasks" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <ListItem key="Notes" disablePadding>
+          <ListItem key="Dashboard" disablePadding component={Link} to="/">
+            <ListItemButton>
+              <ListItemIcon>
+                <HomeRoundedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" sx={{ color: "black" }} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem key="Tasks" disablePadding component={Link} to="/add-todo">
+            <ListItemButton>
+              <ListItemIcon>
+                <TaskAltRoundedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Tasks" sx={{ color: "black" }} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem key="Notes" disablePadding component={Link} to="/notes">
             <ListItemButton>
               <ListItemIcon>
                 <NotesRoundedIcon />
               </ListItemIcon>
-              <ListItemText primary="Notes" />
+              <ListItemText primary="Notes" sx={{ color: "black" }} />
             </ListItemButton>
           </ListItem>
           <ListItem key="Focus" disablePadding>
