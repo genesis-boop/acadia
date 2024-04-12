@@ -1,0 +1,25 @@
+.MuiContainer-root.mainDashboard{
+    background: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* width: 50vw; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+} 
+
+.MuiBox-root.mainDashboard-content {
+    background: white;
+    margin:0;
+    margin-right: 15px;
+    padding: 8px;
+    height: 680px;
+    width: 900px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 24px;
+    box-shadow: 5px 10px 12px rgba(0, 0, 0, 0.2);
+}

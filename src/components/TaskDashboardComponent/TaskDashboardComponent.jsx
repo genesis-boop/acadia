@@ -2,25 +2,54 @@ import Container from "@mui/material/Container";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import Stack from "@mui/material/Stack";
+import Card from "@mui/material/Card";
+import "./TaskDashboardComponent.css";
+import { Typography } from "@mui/material";
 
 function TaskDashboardComponent() {
   return (
-    <Container
-      p={0}
-      sx={{
-        background:
-          "linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%)",
-        margin: "0",
-        padding: "0",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DateCalendar readOnly label="Today's Date" />
-      </LocalizationProvider>
+    <Container className="taskDashboard">
+      <Stack direction="column">
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DateCalendar
+            className="taskDashboard-calendar"
+            readOnly
+            label="Today's Date"
+          />
+        </LocalizationProvider>
+        <Typography>Tasks Today</Typography>
+        <Card
+          sx={{
+            height: 80,
+            width: "100%",
+            backgroundColor: "white",
+            marginBottom: 1,
+            boxShadow: "4px 4px 5px rgba(0,0,0,0.2)",
+            borderRadius: "12px",
+          }}
+        />
+        <Card
+          sx={{
+            height: 80,
+            width: "100%",
+            backgroundColor: "white",
+            marginBottom: 1,
+            boxShadow: "4px 4px 5px rgba(0,0,0,0.2)",
+            borderRadius: "12px",
+          }}
+        />
+        <Card
+          sx={{
+            height: 80,
+            width: "100%",
+            backgroundColor: "white",
+            marginBottom: 1,
+            boxShadow: "4px 4px 5px rgba(0,0,0,0.2)",
+            borderRadius: "12px",
+          }}
+        />
+      </Stack>
     </Container>
   );
 }

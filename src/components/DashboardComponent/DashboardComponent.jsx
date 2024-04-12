@@ -3,77 +3,131 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
-import "@fontsource/bebas-neue/400.css";
-import "@fontsource/archivo/500.css";
+import "@fontsource/space-grotesk/500.css";
+import "./DashboardComponent.css";
+import { useState, useEffect } from "react";
 
 function DashboardComponent() {
+  const [greeting, setGreeting] = useState("");
+
+  useEffect(() => {
+    const currentTime = new Date().getHours();
+
+    if (currentTime >= 6 && currentTime < 12) {
+      setGreeting("☀️ GOOD MORNING, A BIG DAY AHEAD!");
+    } else if (currentTime >= 12 && currentTime < 18) {
+      setGreeting("🌇 GOOD AFTERNOON, STAY SAFE!");
+    } else {
+      setGreeting("🌙 GOOD EVENING, TIME TO UNWIND!");
+    }
+  }, []);
+
   return (
-    <Container
-      p={0}
-      sx={{
-        background:
-          "linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%)",
-        margin: "0",
-        padding: "0",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <Box
-        height={680}
-        width={1200}
-        display="flex"
-        alignItems="flex-start"
-        justifyContent="flex-start"
-        gap={4}
-        p={0}
-        sx={{ backgroundColor: "white" }}
-        borderRadius={12}
-      >
+    <Container className="mainDashboard">
+      <Box className="mainDashboard-content">
         <Stack direction="column">
           <Typography
             variant="h2"
-            sx={{ fontFamily: "Bebas Neue, sans-serif" }}
+            sx={{
+              fontFamily: "Space Grotesk, sans-serif",
+              fontSize: 42,
+              fontWeight: 500,
+              display: "flex",
+              justifyContent: "flex-start",
+              margin: "8px",
+            }}
             m={2}
           >
-            👋 Hello, Welcome to your dashboard!
+            {greeting}
           </Typography>
           <Card
             sx={{
-              height: 150,
-              width: 1000,
+              height: 200,
+              width: 850,
               backgroundColor: "black",
+              borderRadius: "16px",
+              marginBottom: "16px",
             }}
           />
           <Typography
             variant="h4"
-            sx={{ fontFamily: "Archivo, sans-serif" }}
+            sx={{
+              fontFamily: "Space Grotesk, sans-serif",
+              fontSize: 24,
+              display: "flex",
+              justifyContent: "flex-start",
+              margin: "8px",
+            }}
             m={2}
           >
-            Notes!
+            QUICK ACTIONS!
           </Typography>
-          <Stack direction="row" gap={2}>
+          <Stack
+            direction="row"
+            gap={2}
+            justifyContent="center"
+            sx={{ maxWidth: 850 }}
+            marginBottom="16px"
+          >
+            <Card
+              sx={{
+                height: 120,
+                width: 272,
+                backgroundColor: "black",
+                borderRadius: "16px",
+              }}
+            />
+            <Card
+              sx={{
+                height: 120,
+                width: 272,
+                backgroundColor: "black",
+                borderRadius: "16px",
+              }}
+            />
+            <Card
+              sx={{
+                height: 120,
+                width: 272,
+                backgroundColor: "black",
+                borderRadius: "16px",
+              }}
+            />
+          </Stack>
+          <Typography
+            variant="h4"
+            sx={{
+              fontFamily: "Space Grotesk, sans-serif",
+              fontSize: 24,
+              display: "flex",
+              justifyContent: "flex-start",
+              margin: "8px",
+            }}
+            m={2}
+          >
+            YOUR NOTES!
+          </Typography>
+          <Stack
+            direction="row"
+            gap="16px"
+            justifyContent="center"
+            marginBottom="16px"
+            sx={{ maxWidth: 850 }}
+          >
             <Card
               sx={{
                 height: 150,
-                width: 150,
+                width: 417,
                 backgroundColor: "black",
+                borderRadius: "16px",
               }}
             />
             <Card
               sx={{
                 height: 150,
-                width: 150,
+                width: 417,
                 backgroundColor: "black",
-              }}
-            />
-            <Card
-              sx={{
-                height: 150,
-                width: 150,
-                backgroundColor: "black",
+                borderRadius: "16px",
               }}
             />
           </Stack>
