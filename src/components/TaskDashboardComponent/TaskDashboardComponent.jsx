@@ -7,6 +7,7 @@ import Card from "@mui/material/Card";
 import "./TaskDashboardComponent.css";
 import { Typography } from "@mui/material";
 import "@fontsource/space-grotesk/500.css";
+import "@fontsource/work-sans/400.css";
 
 function TaskDashboardComponent() {
   return (

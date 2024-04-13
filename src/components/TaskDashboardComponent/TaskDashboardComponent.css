@@ -12,3 +12,30 @@
     margin-right: 0;
     margin-left: 0;
 }
+
+
+.MuiButtonBase-root.MuiPickersDay-root.MuiPickersDay-dayWithMargin.css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+
+.MuiTypography-root.MuiTypography-caption.MuiDayCalendar-weekDayLabel.css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+
+.MuiPickersCalendarHeader-label.css-dplwbx-MuiPickersCalendarHeader-label {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+
+.MuiButtonBase-root.MuiPickersDay-root.MuiPickersDay-dayWithMargin.MuiPickersDay-today.css-23p0if-MuiButtonBase-root-MuiPickersDay-root {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    border-radius: 12px;
+}
+
+.MuiPickersYear-yearButton.css-innj4t-MuiPickersYear-yearButton {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
