@@ -12,6 +12,7 @@ import LaptopRoundedIcon from "@mui/icons-material/LaptopRounded";
 import Typography from "@mui/material/Typography";
 import "@fontsource/rubik/900.css";
 import "@fontsource/space-grotesk/400.css";
+import "./DrawerComponent.css";
 import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -45,7 +46,7 @@ function PermanentDrawerLeft() {
               <ListItemIcon>
                 <HomeRoundedIcon />
               </ListItemIcon>
-              <ListItemText primary="Dashboard" sx={{ color: "black" }} />
+              <ListItemText primary="DASHBOARD" sx={{ color: "black" }} />
             </ListItemButton>
           </ListItem>
           <ListItem key="Tasks" disablePadding component={Link} to="/add-todo">
@@ -53,7 +54,7 @@ function PermanentDrawerLeft() {
               <ListItemIcon>
                 <TaskAltRoundedIcon />
               </ListItemIcon>
-              <ListItemText primary="Tasks" sx={{ color: "black" }} />
+              <ListItemText primary="TASKS" sx={{ color: "black" }} />
             </ListItemButton>
           </ListItem>
           <ListItem key="Notes" disablePadding component={Link} to="/notes">
@@ -61,7 +62,7 @@ function PermanentDrawerLeft() {
               <ListItemIcon>
                 <NotesRoundedIcon />
               </ListItemIcon>
-              <ListItemText primary="Notes" sx={{ color: "black" }} />
+              <ListItemText primary="NOTES" sx={{ color: "black" }} />
             </ListItemButton>
           </ListItem>
           <ListItem key="Focus" disablePadding>
@@ -69,7 +70,7 @@ function PermanentDrawerLeft() {
               <ListItemIcon>
                 <LaptopRoundedIcon />
               </ListItemIcon>
-              <ListItemText primary="Focus Session" />
+              <ListItemText primary="FOCUS SESSION" />
             </ListItemButton>
           </ListItem>
         </List>

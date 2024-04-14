@@ -1,0 +1,25 @@
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.css-1dmqq99-MuiPaper-root-MuiCard-root {
+    background-color: #fef68a;
+    padding: 1rem;
+    border-radius: 10px;
+    min-height: 170px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 0 */
+}
+
+.MuiCardContent-root.css-46bh2p-MuiCardContent-root:last-child {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    justify-content: space-between;
+    min-height: 170px;
+    padding: 0;
+}
+
+.MuiStack-root.css-m69qwo-MuiStack-root {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}

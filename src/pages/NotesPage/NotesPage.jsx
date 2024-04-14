@@ -1,40 +1,26 @@
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import NotesComponent from "../../components/NotesComponent/NotesComponent";
+import Grid from "@mui/material/Grid";
 function NotesPage() {
   return (
-    <Grid
-      container
-      spacing={0}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{ minHeight: "100vh" }}
-    >
-      <Box
-        height={620}
-        width={1200}
-        my={4}
-        gap={4}
-        p={2}
-        sx={{ border: "2px solid grey" }}
-        borderRadius={2}
-      >
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <h1>Selected Notes</h1>
-          </Grid>
-          <Divider
-            orientation="veritical"
-            sx={{ height: "100%", borderColor: "black" }}
-          />
-          <Grid item xs={8}>
-            <h1>Notes</h1>
+    <Container>
+      <Box>
+        <Typography>Notes</Typography>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          <Grid item xs={2} sm={4} md={4}>
+            <NotesComponent />
+            <NotesComponent />
+            <NotesComponent />
           </Grid>
         </Grid>
       </Box>
-    </Grid>
+    </Container>
   );
 }
 
