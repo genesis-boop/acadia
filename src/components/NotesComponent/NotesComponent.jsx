@@ -5,15 +5,15 @@ import Stack from "@mui/material/Stack";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import "./NotesComponent.css";
 
-function NotesComponent() {
+function NotesComponent({ note }) {
   return (
     <Card sx={{ maxWidth: 275 }}>
       <CardContent>
         <Typography sx={{ display: "flex", justifyContent: "flex-start" }}>
-          Hello This is my first note!
+          {note.text}
         </Typography>
         <Stack direction="row">
-          <Typography>14/04/2024</Typography>
+          <Typography>{note.date}</Typography>
           <DeleteForeverRoundedIcon />
         </Stack>
       </CardContent>
