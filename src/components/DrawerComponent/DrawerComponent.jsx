@@ -8,7 +8,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
 import NotesRoundedIcon from "@mui/icons-material/NotesRounded";
-import LaptopRoundedIcon from "@mui/icons-material/LaptopRounded";
 import Typography from "@mui/material/Typography";
 import "@fontsource/rubik/900.css";
 import "@fontsource/space-grotesk/400.css";
@@ -49,7 +48,7 @@ function PermanentDrawerLeft() {
               <ListItemText primary="DASHBOARD" sx={{ color: "black" }} />
             </ListItemButton>
           </ListItem>
-          <ListItem key="Tasks" disablePadding component={Link} to="/add-todo">
+          <ListItem key="Tasks" disablePadding component={Link} to="/todo">
             <ListItemButton>
               <ListItemIcon>
                 <TaskAltRoundedIcon />
@@ -63,14 +62,6 @@ function PermanentDrawerLeft() {
                 <NotesRoundedIcon />
               </ListItemIcon>
               <ListItemText primary="NOTES" sx={{ color: "black" }} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem key="Focus" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <LaptopRoundedIcon />
-              </ListItemIcon>
-              <ListItemText primary="FOCUS SESSION" />
             </ListItemButton>
           </ListItem>
         </List>

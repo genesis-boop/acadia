@@ -8,8 +8,43 @@ import "./TaskDashboardComponent.css";
 import { Typography } from "@mui/material";
 import "@fontsource/space-grotesk/500.css";
 import "@fontsource/work-sans/400.css";
+import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
+import Chip from "@mui/material/Chip";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function TaskDashboardComponent() {
+  const [tasks, setTasks] = useState([]);
+  const today = new Date().toISOString().slice(0, 10);
+
+  useEffect(() => {
+    const getTasks = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/todo");
+        setTasks(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getTasks();
+  }, []);
+
+  const getChipColor = (tag) => {
+    switch (tag) {
+      case "Urgent":
+        return "error";
+      case "Home":
+        return "warning";
+      case "Work":
+        return "info";
+      case "School":
+        return "success";
+      default:
+        return "default";
+    }
+  };
+
   return (
     <Container className="taskDashboard">
       <Stack direction="column">
@@ -26,7 +61,6 @@ function TaskDashboardComponent() {
         >
           CALENDAR
         </Typography>
-
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar
             className="taskDashboard-calendar"
@@ -37,7 +71,6 @@ function TaskDashboardComponent() {
             }}
           />
         </LocalizationProvider>
-
         <Typography
           variant="h4"
           sx={{
@@ -51,36 +84,77 @@ function TaskDashboardComponent() {
         >
           TODAY'S TASKS
         </Typography>
-        <Card
-          sx={{
-            height: 80,
-            width: "100%",
-            backgroundColor: "white",
-            marginBottom: 1,
-            boxShadow: "4px 4px 12px rgba(0,0,0,0.2)",
-            borderRadius: "12px",
-          }}
-        />
-        <Card
-          sx={{
-            height: 80,
-            width: "100%",
-            backgroundColor: "white",
-            marginBottom: 1,
-            boxShadow: "4px 4px 12px rgba(0,0,0,0.2)",
-            borderRadius: "12px",
-          }}
-        />
-        <Card
-          sx={{
-            height: 80,
-            width: "100%",
-            backgroundColor: "white",
-            marginBottom: 1,
-            boxShadow: "4px 4px 12px rgba(0,0,0,0.2)",
-            borderRadius: "12px",
-          }}
-        />
+        {tasks
+          .filter((task) => task.dueDate.slice(0, 10) === today)
+          .slice(0, 3)
+          .map((task) => (
+            <Link to={`/todo`} key={task.id} style={{ textDecoration: "none" }}>
+              <Card
+                sx={{
+                  height: 90,
+                  width: "100%",
+                  backgroundColor: "white",
+                  marginBottom: 1,
+                  boxShadow: "4px 4px 12px rgba(0,0,0,0.2)",
+                  borderRadius: "12px",
+                  padding: "8px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Stack
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      fontFamily: "Work Sans, san-serif",
+                      fontSize: "18px",
+                    }}
+                  >
+                    {task.title}
+                  </Typography>
+                  <ArrowOutwardRoundedIcon
+                    sx={{
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  />
+                </Stack>
+                <Stack
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "8px",
+                  }}
+                >
+                  {task.tags ? (
+                    Array.isArray(task.tags) ? (
+                      task.tags.map((tag) => (
+                        <Chip label={tag} key={tag} color={getChipColor(tag)} />
+                      ))
+                    ) : (
+                      task.tags
+                        .split(",")
+                        .map((tag) => (
+                          <Chip
+                            label={tag}
+                            key={tag}
+                            color={getChipColor(tag)}
+                          />
+                        ))
+                    )
+                  ) : (
+                    <></>
+                  )}
+                </Stack>
+              </Card>
+            </Link>
+          ))}
       </Stack>
     </Container>
   );
