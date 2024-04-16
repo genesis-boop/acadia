@@ -5,10 +5,16 @@ import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
 import "@fontsource/space-grotesk/500.css";
 import "./DashboardComponent.css";
+import AddTaskRoundedIcon from "@mui/icons-material/AddTaskRounded";
+import LibraryBooksRoundedIcon from "@mui/icons-material/LibraryBooksRounded";
+import Chip from "@mui/material/Chip";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 function DashboardComponent() {
   const [greeting, setGreeting] = useState("");
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     const currentTime = new Date().getHours();
@@ -20,6 +26,16 @@ function DashboardComponent() {
     } else {
       setGreeting("🌙 GOOD EVENING, TIME TO UNWIND!");
     }
+
+    const getNotes = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/notes");
+        setNotes(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getNotes();
   }, []);
 
   return (
@@ -72,27 +88,41 @@ function DashboardComponent() {
             <Card
               sx={{
                 height: 120,
-                width: 272,
-                backgroundColor: "black",
+                width: "100%",
+                backgroundColor: "white",
                 borderRadius: "16px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "8px",
+                textDecoration: "none",
               }}
-            />
+              component={Link}
+              to="/add-todo"
+            >
+              <AddTaskRoundedIcon />
+              <Typography>Add A Task</Typography>
+            </Card>
             <Card
               sx={{
                 height: 120,
-                width: 272,
-                backgroundColor: "black",
+                width: "100%",
+                backgroundColor: "white",
                 borderRadius: "16px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "8px",
+                textDecoration: "none",
               }}
-            />
-            <Card
-              sx={{
-                height: 120,
-                width: 272,
-                backgroundColor: "black",
-                borderRadius: "16px",
-              }}
-            />
+              component={Link}
+              to="/notes"
+            >
+              <LibraryBooksRoundedIcon />
+              <Typography>Add A Note</Typography>
+            </Card>
           </Stack>
           <Typography
             variant="h4"
@@ -114,22 +144,25 @@ function DashboardComponent() {
             marginBottom="16px"
             sx={{ maxWidth: 850 }}
           >
-            <Card
-              sx={{
-                height: 150,
-                width: 417,
-                backgroundColor: "black",
-                borderRadius: "16px",
-              }}
-            />
-            <Card
-              sx={{
-                height: 150,
-                width: 417,
-                backgroundColor: "black",
-                borderRadius: "16px",
-              }}
-            />
+            {notes.slice(0, 2).map((note) => (
+              <Card
+                key={note.id}
+                sx={{
+                  height: 140,
+                  width: 417,
+                  backgroundColor: "white",
+                  borderRadius: "16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  alignItems: "flex-start",
+                  padding: "8px",
+                }}
+              >
+                <Typography>{note.text}</Typography>
+                <Chip label={note.date} />
+              </Card>
+            ))}
           </Stack>
         </Stack>
       </Box>
