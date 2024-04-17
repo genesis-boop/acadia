@@ -33,34 +33,58 @@ function ToDoPage() {
   return (
     <Container>
       <Stack
-        sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          gap: "12px",
+        }}
       >
         <Link to="/">
-          <ArrowBackIosRoundedIcon />
+          <ArrowBackIosRoundedIcon sx={{ color: "black" }} />
         </Link>
-        <Typography>To Do lists</Typography>
+        <Typography
+          sx={{
+            fontFamily: "Space Grotesk, sans-serif",
+            fontSize: 32,
+            fontWeight: 700,
+          }}
+        >
+          YOUR TO DO'S
+        </Typography>
       </Stack>
       <Box
         sx={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-evenly",
+          gap: "12px",
         }}
       >
         <Card
           sx={{
             width: "350px",
             height: "650px",
-            backgroundColor: "#E4E4E4",
+            backgroundColor: "#E3DFF2",
             padding: "8px",
             display: "flex",
             flexDirection: "column",
             gap: "12px",
+            border: "5px solid black",
           }}
         >
           <Stack direction="row">
-            <Typography>Low Priority</Typography>
-            <Typography>{taskCounts.low}</Typography>
+            <Typography
+              sx={{ fontFamily: "Work Sans, sans-serif", fontWeight: 700 }}
+            >
+              LOW PRIORITY
+            </Typography>
+            <Typography
+              sx={{ fontFamily: "Work Sans, sans-serif", fontWeight: 700 }}
+            >
+              {taskCounts.low}
+            </Typography>
           </Stack>
           {toDoList
             .filter((todo) => todo.priority === 1)
@@ -72,16 +96,25 @@ function ToDoPage() {
           sx={{
             width: "350px",
             height: "650px",
-            backgroundColor: "#E4E4E4",
+            backgroundColor: "#FDFD96",
             padding: "8px",
             display: "flex",
             flexDirection: "column",
             gap: "12px",
+            border: "5px solid black",
           }}
         >
           <Stack direction="row">
-            <Typography>Medium Priority</Typography>
-            <Typography>{taskCounts.medium}</Typography>
+            <Typography
+              sx={{ fontFamily: "Work Sans, sans-serif", fontWeight: 700 }}
+            >
+              Medium Priority
+            </Typography>
+            <Typography
+              sx={{ fontFamily: "Work Sans, sans-serif", fontWeight: 700 }}
+            >
+              {taskCounts.medium}
+            </Typography>
           </Stack>
           {toDoList
             .filter((todo) => todo.priority === 2)
@@ -93,16 +126,25 @@ function ToDoPage() {
           sx={{
             width: "350px",
             height: "650px",
-            backgroundColor: "#E4E4E4",
+            backgroundColor: "#FFA07A",
             padding: "8px",
             display: "flex",
             flexDirection: "column",
             gap: "12px",
+            border: "5px solid black",
           }}
         >
           <Stack direction="row">
-            <Typography>High Priority</Typography>
-            <Typography>{taskCounts.high}</Typography>
+            <Typography
+              sx={{ fontFamily: "Work Sans, sans-serif", fontWeight: 700 }}
+            >
+              High Priority
+            </Typography>
+            <Typography
+              sx={{ fontFamily: "Work Sans, sans-serif", fontWeight: 700 }}
+            >
+              {taskCounts.high}
+            </Typography>
           </Stack>
           {toDoList
             .filter((todo) => todo.priority === 3)

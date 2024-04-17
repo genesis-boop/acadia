@@ -29,6 +29,8 @@ function ToDo({ todo }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        border: "5px solid black",
+        boxShadow: "3px 3px 0px black",
       }}
     >
       <div class="checkbox-wrapper-11">
