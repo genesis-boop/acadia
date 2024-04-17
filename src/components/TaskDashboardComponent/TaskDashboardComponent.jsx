@@ -95,12 +95,17 @@ function TaskDashboardComponent() {
                   width: "100%",
                   backgroundColor: "white",
                   marginBottom: 1,
-                  boxShadow: "4px 4px 12px rgba(0,0,0,0.2)",
                   borderRadius: "12px",
                   padding: "8px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
+                  border: "5px solid black",
+                  boxShadow: "none",
+
+                  "&:hover": {
+                    boxShadow: "5px 5px 0px black",
+                  },
                 }}
               >
                 <Stack

@@ -42,34 +42,41 @@ function DashboardComponent() {
     <Container className="mainDashboard">
       <Box className="mainDashboard-content">
         <Stack direction="column">
-          <Typography
-            variant="h2"
-            sx={{
-              fontFamily: "Space Grotesk, sans-serif",
-              fontSize: 42,
-              fontWeight: 500,
-              display: "flex",
-              justifyContent: "flex-start",
-              margin: "8px",
-            }}
-            m={2}
-          >
-            {greeting}
-          </Typography>
           <Card
             sx={{
-              height: 200,
-              width: 850,
-              backgroundColor: "black",
+              height: 150,
+              width: 732,
+              backgroundColor: "white",
+              border: "5px solid black",
+              padding: "20px 50px",
               borderRadius: "16px",
               marginBottom: "16px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              boxShadow: "8px 8px 0px black",
             }}
-          />
+          >
+            <Typography
+              variant="h2"
+              sx={{
+                fontFamily: "Space Grotesk, sans-serif",
+                fontSize: 42,
+                fontWeight: 600,
+
+                // display: "flex",
+                // justifyContent: "flex-start",
+              }}
+            >
+              {greeting}
+            </Typography>
+          </Card>
           <Typography
             variant="h4"
             sx={{
               fontFamily: "Space Grotesk, sans-serif",
               fontSize: 24,
+              fontWeight: 500,
               display: "flex",
               justifyContent: "flex-start",
               margin: "8px",
@@ -82,46 +89,91 @@ function DashboardComponent() {
             direction="row"
             gap={2}
             justifyContent="center"
+            alignItems="center"
             sx={{ maxWidth: 850 }}
             marginBottom="16px"
           >
             <Card
               sx={{
                 height: 120,
-                width: "100%",
-                backgroundColor: "white",
-                borderRadius: "16px",
+                width: 400,
+                backgroundColor: "#A388EE",
+                borderRadius: "8px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "8px",
                 textDecoration: "none",
+                border: "5px solid black",
+                boxShadow: "none",
+
+                "&:hover": {
+                  backgroundColor: "#C4A1FF",
+                  boxShadow: "8px 8px 0px black",
+                },
               }}
               component={Link}
               to="/add-todo"
             >
-              <AddTaskRoundedIcon />
-              <Typography>Add A Task</Typography>
+              <AddTaskRoundedIcon
+                sx={{
+                  width: "32px",
+                  height: "32px",
+                }}
+              />
+              <Typography
+                sx={{
+                  fontFamily: "Space Grotesk, sans-serif",
+                  fontSize: 24,
+                  fontWeight: 600,
+                  // display: "flex",
+                  // justifyContent: "flex-start",
+                }}
+              >
+                ADD A TASK
+              </Typography>
             </Card>
             <Card
               sx={{
                 height: 120,
-                width: "100%",
-                backgroundColor: "white",
-                borderRadius: "16px",
+                width: 400,
+                backgroundColor: "#A7DBD8",
+                borderRadius: "8px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "8px",
                 textDecoration: "none",
+                border: "5px solid black",
+                boxShadow: "none",
+
+                "&:hover": {
+                  backgroundColor: "#BBE4DD",
+                  boxShadow: "8px 8px 0px black",
+                },
               }}
               component={Link}
               to="/notes"
             >
-              <LibraryBooksRoundedIcon />
-              <Typography>Add A Note</Typography>
+              <LibraryBooksRoundedIcon
+                sx={{
+                  width: "32px",
+                  height: "32px",
+                }}
+              />
+              <Typography
+                sx={{
+                  fontFamily: "Space Grotesk, sans-serif",
+                  fontSize: 24,
+                  fontWeight: 600,
+                  // display: "flex",
+                  // justifyContent: "flex-start",
+                }}
+              >
+                ADD A NOTE
+              </Typography>
             </Card>
           </Stack>
           <Typography
@@ -129,6 +181,7 @@ function DashboardComponent() {
             sx={{
               fontFamily: "Space Grotesk, sans-serif",
               fontSize: 24,
+              fontWeight: 500,
               display: "flex",
               justifyContent: "flex-start",
               margin: "8px",
@@ -150,16 +203,26 @@ function DashboardComponent() {
                 sx={{
                   height: 140,
                   width: 417,
-                  backgroundColor: "white",
-                  borderRadius: "16px",
+                  backgroundColor: "#FCFD96",
+                  borderRadius: "8px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
                   alignItems: "flex-start",
                   padding: "8px",
+                  border: "5px solid black",
+                  boxShadow: "8px 8px 0px black",
                 }}
               >
-                <Typography>{note.text}</Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Work Sans, san-serif",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                  }}
+                >
+                  {note.text}
+                </Typography>
                 <Chip label={note.date} />
               </Card>
             ))}
