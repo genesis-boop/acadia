@@ -36,13 +36,23 @@ function NotesPage() {
         sx={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          gap: "12px",
         }}
       >
         <Link to="/">
-          <ArrowBackIosRoundedIcon />
+          <ArrowBackIosRoundedIcon sx={{ color: "black" }} />
         </Link>
-        <Typography>Notes</Typography>
+        <Typography
+          sx={{
+            fontFamily: "Space Grotesk, sans-serif",
+            fontSize: 32,
+            fontWeight: 700,
+          }}
+        >
+          YOUR NOTES
+        </Typography>
       </Stack>
       <Box>
         <Grid

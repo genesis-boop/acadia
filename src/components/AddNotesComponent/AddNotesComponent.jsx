@@ -55,9 +55,19 @@ function AddNotes() {
             variant="contained"
             onClick={handleSave}
             sx={{
-              border: "none",
-              borderRadius: "24px",
+              borderRadius: "4px",
               padding: "5px 10px 5px 10px",
+              border: "3px solid black",
+              // backgroundColor: "#7FBC8C",
+              color: "black",
+              fontFamily: "Work Sans, sans-serif",
+              fontWeight: 700,
+
+              "&:hover": {
+                // backgroundColor: "90EE90",
+                boxShadow: "3px 3px 0px black",
+                color: "white",
+              },
             }}
           >
             Save

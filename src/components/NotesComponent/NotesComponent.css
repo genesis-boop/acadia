@@ -1,8 +1,10 @@
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.css-1dmqq99-MuiPaper-root-MuiCard-root {
     background-color: #fef68a;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 8px;
     min-height: 170px;
+    border: 5px solid black;
+    box-shadow: 5px 5px 0px black;
     /* display: flex;
     flex-direction: column;
     justify-content: space-between;
