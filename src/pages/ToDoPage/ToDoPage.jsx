@@ -5,6 +5,8 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import ToDo from "../../components/ToDoComponent/ToDoComponent";
 import axios from "axios";
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function ToDoPage() {
@@ -30,7 +32,14 @@ function ToDoPage() {
 
   return (
     <Container>
-      <Typography>To Do lists</Typography>
+      <Stack
+        sx={{ display: "flex", flexDirection: "row", justifyContent: "center" }}
+      >
+        <Link to="/">
+          <ArrowBackIosRoundedIcon />
+        </Link>
+        <Typography>To Do lists</Typography>
+      </Stack>
       <Box
         sx={{
           display: "flex",

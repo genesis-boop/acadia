@@ -6,6 +6,9 @@ import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import AddNotes from "../../components/AddNotesComponent/AddNotesComponent";
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import Stack from "@mui/material/Stack";
+import { Link } from "react-router-dom";
 
 function NotesPage() {
   const [notes, setNotes] = useState([]);
@@ -29,8 +32,19 @@ function NotesPage() {
 
   return (
     <Container>
-      <Box>
+      <Stack
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
+        <Link to="/">
+          <ArrowBackIosRoundedIcon />
+        </Link>
         <Typography>Notes</Typography>
+      </Stack>
+      <Box>
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
