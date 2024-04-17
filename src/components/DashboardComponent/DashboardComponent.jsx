@@ -38,6 +38,11 @@ function DashboardComponent() {
     getNotes();
   }, []);
 
+  function getRandomNotes(array, numItems) {
+    const shuffled = array.slice().sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, numItems);
+  }
+
   return (
     <Container className="mainDashboard">
       <Box className="mainDashboard-content">
@@ -49,7 +54,7 @@ function DashboardComponent() {
               backgroundColor: "white",
               border: "5px solid black",
               padding: "20px 50px",
-              borderRadius: "16px",
+              borderRadius: "8px",
               marginBottom: "16px",
               display: "flex",
               justifyContent: "center",
@@ -197,21 +202,26 @@ function DashboardComponent() {
             marginBottom="16px"
             sx={{ maxWidth: 850 }}
           >
-            {notes.slice(0, 2).map((note) => (
+            {getRandomNotes(notes, 2).map((note) => (
               <Card
                 key={note.id}
                 sx={{
                   height: 140,
                   width: 417,
                   backgroundColor: "#FCFD96",
-                  borderRadius: "8px",
+                  borderRadius: "8px 8px 8px 8px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
                   alignItems: "flex-start",
                   padding: "8px",
                   border: "5px solid black",
-                  boxShadow: "8px 8px 0px black",
+                  boxShadow: "none",
+
+                  "&:hover": {
+                    // backgroundColor: "#BBE4DD",
+                    boxShadow: "8px 8px 0px black",
+                  },
                 }}
               >
                 <Typography
