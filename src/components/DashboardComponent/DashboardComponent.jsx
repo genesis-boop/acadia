@@ -215,6 +215,7 @@ function DashboardComponent() {
                   justifyContent: "space-between",
                   alignItems: "flex-start",
                   padding: "8px",
+                  textDecoration: "none",
                   border: "5px solid black",
                   boxShadow: "none",
 
@@ -223,6 +224,8 @@ function DashboardComponent() {
                     boxShadow: "8px 8px 0px black",
                   },
                 }}
+                component={Link}
+                to="/notes"
               >
                 <Typography
                   sx={{
@@ -233,7 +236,13 @@ function DashboardComponent() {
                 >
                   {note.text}
                 </Typography>
-                <Chip label={note.date} />
+                <Chip
+                  label={note.date}
+                  sx={{
+                    fontFamily: "Work Sans, sans-serif",
+                    fontWeight: 600,
+                  }}
+                />
               </Card>
             ))}
           </Stack>
