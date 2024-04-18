@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Autocomplete from "@mui/material/Autocomplete";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddToDo() {
   const [title, setTitle] = useState("");
@@ -24,6 +25,8 @@ function AddToDo() {
     "School",
     "Urgent",
   ]);
+
+  const navigate = useNavigate();
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -57,6 +60,7 @@ function AddToDo() {
 
       if (response.status === 201) {
         console.log("Task Saved Nice");
+        navigate("/todo");
       } else {
         console.log("wuh woh", response.status);
       }
@@ -66,33 +70,82 @@ function AddToDo() {
   };
 
   return (
-    <Stack direction="row" spacing={3}>
-      <Stack direction="column" spacing={2}>
+    <Stack
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "12px",
+      }}
+    >
+      <Stack
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "20px",
+        }}
+      >
         <TextField
           id="task-title"
-          label="Task Title"
-          variant="outlined"
+          label=""
+          variant="standard"
           fullWidth
           value={title}
           onChange={handleTitleChange}
           required
+          InputProps={{ disableUnderline: true }}
+          sx={{
+            border: "5px solid black",
+            borderRadius: "4px",
+            height: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            alignItems: "center",
+            "&:hover": {
+              boxShadow: "3px 3px 0px black",
+            },
+          }}
         />
         <TextField
           id="task-description"
-          label="Task Details"
+          label=""
+          variant="standard"
           multiline
           rows={4}
           fullWidth
           value={description}
           onChange={handleDescriptionChange}
+          InputProps={{ disableUnderline: true }}
           required
+          sx={{
+            border: "5px solid black",
+            borderRadius: "8px",
+            // height: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            alignItems: "center",
+            "&:hover": {
+              boxShadow: "3px 3px 0px black",
+            },
+          }}
         />
-        <Button variant="contained" onClick={handleSubmit}>
+        <Button
+          variant="contained"
+          onClick={handleSubmit}
+          fullWidth
+          sx={{
+            border: "5px solid black",
+            "&:hover": { boxShadow: "3px 3px 0px black" },
+          }}
+        >
           Add New Task
         </Button>
       </Stack>
       <Stack>
-        <p>Due Date</p>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar
             label="Select Due Date"

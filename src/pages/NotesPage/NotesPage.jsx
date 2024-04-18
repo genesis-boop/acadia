@@ -26,10 +26,6 @@ function NotesPage() {
     getNotes();
   }, []);
 
-  const addNewNote = (newNote) => {
-    setNotes([...notes, newNote]);
-  };
-
   return (
     <Container>
       <Stack
@@ -67,7 +63,7 @@ function NotesPage() {
             </Grid>
           ))}
           <Grid item xs={2} sm={4} md={4}>
-            <AddNotes onSaveNote={addNewNote} />
+            <AddNotes />
           </Grid>
         </Grid>
       </Box>

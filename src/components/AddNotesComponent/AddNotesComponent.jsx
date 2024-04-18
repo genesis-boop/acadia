@@ -5,28 +5,30 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AddNotesComponent.css";
 
 function AddNotes() {
   const [noteText, setNoteText] = useState("");
+  const navigate = useNavigate();
 
   const handleTextChange = (event) => {
     setNoteText(event.target.value);
   };
 
-  const handleSave = async (props) => {
+  const handleSave = async (event) => {
+    event.preventDefault();
+
     const newNote = {
       text: noteText,
       date: new Date().toLocaleDateString(),
     };
 
     try {
-      const response = await axios.post("http://localhost:8080/notes", newNote);
-      const noteWithId = response.data;
-
-      props.onSaveNote(noteWithId);
+      await axios.post("http://localhost:8080/notes", newNote);
       setNoteText("");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
