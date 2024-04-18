@@ -112,8 +112,12 @@ function DashboardComponent() {
                 textDecoration: "none",
                 border: "5px solid black",
                 boxShadow: "none",
+                color: "white",
+                textShadow: "2px 2px 0px black",
 
                 "&:hover": {
+                  color: "black",
+                  textShadow: "2px 2px 0px white",
                   backgroundColor: "#C4A1FF",
                   boxShadow: "8px 8px 0px black",
                 },
@@ -132,6 +136,7 @@ function DashboardComponent() {
                   fontFamily: "Space Grotesk, sans-serif",
                   fontSize: 24,
                   fontWeight: 600,
+                  // color: "white",
                   // display: "flex",
                   // justifyContent: "flex-start",
                 }}
@@ -153,8 +158,12 @@ function DashboardComponent() {
                 textDecoration: "none",
                 border: "5px solid black",
                 boxShadow: "none",
+                color: "white",
+                textShadow: "2px 2px 0px black",
 
                 "&:hover": {
+                  color: "black",
+                  textShadow: "2px 2px 0px white",
                   backgroundColor: "#BBE4DD",
                   boxShadow: "8px 8px 0px black",
                 },
@@ -173,8 +182,6 @@ function DashboardComponent() {
                   fontFamily: "Space Grotesk, sans-serif",
                   fontSize: 24,
                   fontWeight: 600,
-                  // display: "flex",
-                  // justifyContent: "flex-start",
                 }}
               >
                 ADD A NOTE
