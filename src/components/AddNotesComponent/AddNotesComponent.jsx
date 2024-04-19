@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AddNotesComponent.css";
 
-function AddNotes() {
+function AddNotes({ setNotes }) {
   const [noteText, setNoteText] = useState("");
   const navigate = useNavigate();
 
@@ -27,8 +27,10 @@ function AddNotes() {
 
     try {
       await axios.post("http://localhost:8080/notes", newNote);
+      const response = await axios.get("http://localhost:8080/notes");
+      setNotes(response.data);
       setNoteText("");
-      navigate("/");
+      // navigate("/");
     } catch (error) {
       console.log(error);
     }
